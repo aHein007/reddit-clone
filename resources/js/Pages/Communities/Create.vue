@@ -24,7 +24,7 @@
             </div>
 
 
-            <div>
+            <div class="mt-4">
                 <InputLabel for="description" value="Description" />
                 <TextInput id="description" type="text" class="mt-1 block w-full" v-model="form.description"  autofocus autocomplete="description" />
                 <InputError class="mt-2" :message="form.errors.description" />
