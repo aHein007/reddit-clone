@@ -42,7 +42,7 @@ class CommunityController extends Controller
     public function store(CommunityStoreRequest $request) // communityStoreRequest is for this
     {
         Community::create($request->validated() + ["user_id"=>auth()->id()]);
-        return to_route("communities.index");
+        return to_route("communities.index")->with(["message" =>"Your Community had been Created!"]);
     }
 
     /**
@@ -82,7 +82,7 @@ class CommunityController extends Controller
     {
     // this is important code when you update community//////////
         $community->update($request->validated());
-        return to_route("communities.index");
+        return to_route("communities.index")->with(["message" =>"Your Community has been Updated!"]);
     }
 
     /**
@@ -91,8 +91,9 @@ class CommunityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Community $community)
     {
-        //
+         $community->delete();
+         return back()->with(["message" =>"Your Community has been Deleted!"])->with(["massage" =>"Your Community has been Updated!"]);
     }
 }

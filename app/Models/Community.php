@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Community extends Model
 {
-    use HasFactory ,Sluggable;
+    use HasFactory ,Sluggable;//this is useage for sluggable
     protected $fillable=[
         "user_id",
         "name",
@@ -17,7 +17,7 @@ class Community extends Model
 
     ];
 
-    public function sluggable(): array
+    public function sluggable(): array //this is useage for sluggable
     {
         return [
             'slug' => [
