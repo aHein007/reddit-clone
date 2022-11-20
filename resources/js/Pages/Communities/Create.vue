@@ -17,28 +17,12 @@
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
-            <div class="mt-4">
-                <InputLabel for="slug" value="Slug" />
-                <TextInput id="slug" type="text" class="mt-1 block w-full" v-model="form.slug"  autocomplete="username" />
-                <InputError class="mt-2" :message="form.errors.slug" />
-            </div>
-
 
             <div class="mt-4">
                 <InputLabel for="description" value="Description" />
                 <TextInput id="description" type="text" class="mt-1 block w-full" v-model="form.description"  autofocus autocomplete="description" />
                 <InputError class="mt-2" :message="form.errors.description" />
             </div>
-
-
-
-
-
-
-
-
-
-
 
             <div class="flex items-center justify-end mt-4">
 
