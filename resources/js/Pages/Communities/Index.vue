@@ -38,7 +38,7 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200 bg-white">
-              <tr v-for="community in communities" :key="community.id">
+              <tr v-for="community in communities.data" :key="community.id">
                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ community.name }}</td>
                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ community.slug }}</td>
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
@@ -48,10 +48,14 @@
                 <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                   <Link :href="route('communities.destroy',community.id)"  method="delete" as="button" type="button" class="text-red-600 hover:text-red-900">Delete</Link>
                 </td>
+
               </tr>
 
               <!-- More people... -->
             </tbody>
+            <div class="p-5">
+              <Pagination :links="communities.links"></Pagination>
+            </div>
           </table>
         </div>
       </div>
@@ -61,6 +65,7 @@
 
            </div>
        </div>
+
    </AuthenticatedLayout>
    </template>
 
@@ -72,10 +77,10 @@
    import PrimaryButton from '@/Components/PrimaryButton.vue';
    import TextInput from '@/Components/TextInput.vue';
    import { Head, Link } from '@inertiajs/inertia-vue3';
-
+   import Pagination from '@/Components/Pagination.vue';
 
    defineProps({
-    communities:Array
+    communities:Object
    })
 
 
