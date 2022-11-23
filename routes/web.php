@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\CommunityController;
+use App\Http\Controllers\Frontend\SubredditController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,11 @@ Route::group(['middleware' =>['auth', 'verified']],function(){
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-   Route::resource('/communities', CommunityController::class);
+   Route::resource('dashboard/communities', CommunityController::class);
 
 });
+
+Route::get("/r/{slug}",[SubredditController::class, 'show'])->name("subreddit.show");
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
