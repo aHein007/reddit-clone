@@ -7,10 +7,10 @@ use App\Models\Community;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class SubredditController extends Controller
+class CommunitiesController extends Controller
 {
     public function show($slug){
-        $subreddit =Community::where("slug",$slug)->first();
-        return Inertia::render("Subreddit/Show",compact("subreddit"));
+        $community =Community::where("slug",$slug)->first();
+        return Inertia::render("Frontend/Communities/Show",compact("community"));
     }
 }

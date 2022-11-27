@@ -6,6 +6,8 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\CommunityController;
 use App\Http\Controllers\Frontend\SubredditController;
+use App\Http\Controllers\Frontend\CommunitiesController;
+use App\Http\Controllers\Backend\CommunityPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,10 +38,12 @@ Route::group(['middleware' =>['auth', 'verified']],function(){
     })->name('dashboard');
 
    Route::resource('dashboard/communities', CommunityController::class);
+   Route::resource('dashboard/communities.post',CommunityPostController::class);
 
 });
 
-Route::get("/r/{slug}",[SubredditController::class, 'show'])->name("subreddit.show");
+Route::get("/r/{slug}",[CommunitiesController::class, 'show'])->name("subreddit.show");
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
