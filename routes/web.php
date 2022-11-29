@@ -42,7 +42,7 @@ Route::group(['middleware' =>['auth', 'verified']],function(){
 
 });
 
-Route::get("/r/{slug}",[CommunitiesController::class, 'show'])->name("subreddit.show");
+Route::get("/r/{slug}",[CommunitiesController::class, 'show'])->name("frontend.community.show");
 
 
 Route::middleware('auth')->group(function () {

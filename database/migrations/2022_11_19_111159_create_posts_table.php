@@ -18,9 +18,9 @@ return new class extends Migration
             $table->foreignId("community_id")->constrained();//(foreignId,constrained) က dataBase relasitionship လုပ်တဲ့ နေရာမှာ သုံးပါတယ်။
             $table->foreignId("user_id")->constrained();
             $table->string("title")->unique();
-            $table->text("url");
+            $table->string("url")->nullable();
             $table->string("slug");
-            $table->longText("description");
+            $table->longText("description")->nullable();
             $table->softDeletes();//delete လုပ် တဲ့ အခါ မှာ time ကို ပြပေးပါတယ်။
             $table->timestamps();
         });
