@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use Inertia\Inertia;
+use App\Models\Community;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CommunityStoreRequest;
 
 class CommunityController extends Controller
 {
@@ -12,7 +16,7 @@ class CommunityController extends Controller
      */
     public function index()
     {
-        //
+        return 'create success';
     }
 
     /**
@@ -20,15 +24,20 @@ class CommunityController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Community/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CommunityStoreRequest $request)
     {
-        //
+        Community::create($request->validated() +
+    [
+        'user_id' =>Auth::user()->id
+    ]);
+
+        return to_route('communities.index');
     }
 
     /**

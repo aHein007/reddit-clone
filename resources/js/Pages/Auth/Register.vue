@@ -5,6 +5,10 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
+defineProps({
+    errors:Object
+})
+
 
 const form = useForm({
     name: '',
@@ -14,6 +18,8 @@ const form = useForm({
     password_confirmation: '',
     terms: false,
 });
+
+
 
 const submit = () => {
     form.post(route('register'), {
@@ -35,7 +41,7 @@ const submit = () => {
                     type="text"
                     class="mt-1 block w-full"
                     v-model="form.name"
-                    
+
                     autofocus
                     autocomplete="name"
                 />
@@ -51,7 +57,7 @@ const submit = () => {
                         type="text"
                         class="mt-1 block w-full"
                         v-model="form.username"
-                        
+
                         autofocus
                         autocomplete="username"
                     />
@@ -67,7 +73,7 @@ const submit = () => {
                     type="email"
                     class="mt-1 block w-full"
                     v-model="form.email"
-                    
+
                     autocomplete="username"
                 />
 
@@ -82,7 +88,7 @@ const submit = () => {
                     type="password"
                     class="mt-1 block w-full"
                     v-model="form.password"
-                    
+
                     autocomplete="new-password"
                 />
 
@@ -97,7 +103,7 @@ const submit = () => {
                     type="password"
                     class="mt-1 block w-full"
                     v-model="form.password_confirmation"
-                    
+
                     autocomplete="new-password"
                 />
 
