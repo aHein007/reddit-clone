@@ -6,6 +6,8 @@
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">Dashboard</h2>
             </template>
 
+          
+
             <div class="py-12">
                 <div class="max-w-md mx-auto sm:px-6 lg:px-8 bg-white p-10 m-2 rounded-lg">
 

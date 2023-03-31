@@ -38,7 +38,7 @@ class CommunityController extends Controller
         'user_id' =>Auth::user()->id
     ]);
 
-        return to_route('communities.index');
+        return to_route('communities.index')->with('message','Community created successfully!');
     }
 
     /**
@@ -69,14 +69,16 @@ class CommunityController extends Controller
     {
         $community->update($request->validated());
 
-        return to_route('communities.index');
+        return to_route('communities.index')->with('message','Community updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Community $community)
     {
-        //
+         $community->delete();
+
+        return back()->with('deleteMessage','Community have been deleted!');
     }
 }
