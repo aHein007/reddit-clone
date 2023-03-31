@@ -16,7 +16,8 @@ class CommunityController extends Controller
      */
     public function index()
     {
-        return 'create success';
+       $communities = Community::get();
+       return Inertia::render('Community/CommunityPage',compact('communities'));
     }
 
     /**
