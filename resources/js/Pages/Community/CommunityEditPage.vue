@@ -69,7 +69,7 @@
                         </Link> -->
 
                         <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                            Store
+                            Update
                         </PrimaryButton>
                     </div>
                 </form>
@@ -88,18 +88,18 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
-defineProps({
-    errors: Object
+const props=defineProps({
+   community:Object
 })
 
-const submit = () => {
-    form.post(route('communities.store'));
-};
+const submit = (() => {
+    form.put(route('communities.update', props.community.id));
+})
 
 const form = useForm({
-    name: '',
-    description: '',
-    slug:''
+    name: props.community.name ,
+    description: props.community.description,
+    
 });
 </script>
 

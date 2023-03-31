@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Community extends Model
 {
-    use HasFactory;
+    use HasFactory,Sluggable;
 
     protected $fillable=[
         'user_id',
@@ -15,4 +17,15 @@ class Community extends Model
         'slug',
         'description'
     ];
+
+     public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
+
 }
