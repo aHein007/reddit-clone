@@ -16,7 +16,12 @@ class CommunityController extends Controller
      */
     public function index()
     {
-       $communities = Community::get();
+       $communities = Community::paginate(5)->through(fn($community)=>[// this is need when you make paginate with inertia.js
+            'id' => $community->id,
+            'name' => $community->name,
+            'slug' => $community->slug,
+            'created_at' => $community->created_at
+       ]);
        return Inertia::render('Community/CommunityPage',compact('communities'));
     }
 

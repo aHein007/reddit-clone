@@ -49,7 +49,7 @@
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 bg-white">
-                  <tr v-for="(community,index) in communities" :key="index">
+                  <tr v-for="(community,index) in communities.data" :key="index">
                     <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ community.name}}</td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ community.slug }}</td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ community.created_at }}</td>
@@ -63,6 +63,9 @@
                   <!-- More people... -->
                 </tbody>
               </table>
+              <div class="p-5">
+                    <Pagination :links="communities.links"/>
+              </div>
             </div>
           </div>
         </div>
@@ -76,12 +79,11 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
-
+import Pagination from '../../Components/Pagination.vue'
 
 defineProps({
    communities:Object
 })
-
 
 </script>
 
