@@ -30,14 +30,14 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <GuestLayout >
         <Head title="Log in" />
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
 
-        <form @submit.prevent="submit">
+        <form @submit.prevent="submit" class="max-w-md mt-20 bg-white p-6 rounded-md m-auto">
             <div>
                 <InputLabel for="email" value="Email" />
 

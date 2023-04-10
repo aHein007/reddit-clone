@@ -33,6 +33,7 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'auth' => [
                 'user' => $request->user(),//ဘယ် user က  delete လုပ်တာ လဲ ဆို တာ သိ ဖို့ ပါ
+                'auth_check' => auth()->check(), 
             ],
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
