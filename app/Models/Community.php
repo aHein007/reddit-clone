@@ -33,7 +33,7 @@ class Community extends Model
     }
 
     public function posts(){
-         return $this->hasMany(Post::class);
+         return $this->hasMany(Post::class);// one-to-many relationship. post table can make relation with any table
     }
 
 
