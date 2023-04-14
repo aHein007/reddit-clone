@@ -10,7 +10,7 @@
 
   <section class="flex md:flex-row">
     <div class="w-8/12">
-        <PostCard  v-for="post in posts.data" :communityName="community.slug" :post="post" :key="post" ></PostCard>
+
         <div>
             <Pagination :links="posts.meta.links"></Pagination>
             <!-- you need to use (link) when you use the Pagination as a component-->
@@ -28,7 +28,6 @@
 
 <script setup>
 import GuestLayout from '../../../Layouts/GuestLayout.vue'
-import PostCard from '../../../Components/PostCard.vue'
 import Pagination from '../../../Components/Pagination.vue'
 import {Link} from '@inertiajs/vue3'
 defineProps({

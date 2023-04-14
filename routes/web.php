@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\CommunityController;
 use App\Http\Controllers\Backend\CommunityPostController;
 use App\Http\Controllers\Frontend\CommunityController as FrontendCommunityController;
+use App\Http\Controllers\Frontend\PostDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
 //show community
 Route::get('/r/{slug}',[FrontendCommunityController::class,'show'])->name('frontend.communities.show');
+Route::get('/r/{community_slug}/post/{post:slug}',[PostDetailController::class,'show'])->name('frontend.post.show');
 
 Route::group(['middleware' => ['auth','verified']],function(){
     Route::get('/dashboard', function () {
