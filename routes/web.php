@@ -38,8 +38,8 @@ Route::middleware('auth')->group(function () {
 });
 
 //show community
-Route::get('/r/{slug}',[FrontendCommunityController::class,'show'])->name('frontend.communities.show');
-Route::get('/r/{community_slug}/post/{post:slug}',[PostDetailController::class,'show'])->name('frontend.post.show');
+Route::get('/r/{slug}',[FrontendCommunityController::class,'show'])->name('frontend.communities.show'); // this is post show
+Route::get('/r/{community_slug}/post/{post:slug}',[PostDetailController::class,'show'])->name('frontend.post.show'); // this is detail
 
 Route::group(['middleware' => ['auth','verified']],function(){
     Route::get('/dashboard', function () {
