@@ -93,13 +93,13 @@ const props=defineProps({
 })
 
 const submit = (() => {
-    form.put(route('communities.update', props.community.id));
+    form.put(route('communities.update', props.community.slug));
 })
 
 const form = useForm({
     name: props.community.name ,
     description: props.community.description,
-    
+
 });
 </script>
 

@@ -1,9 +1,6 @@
 <template>
     <guest-layout>
-
-
-
-  <section class="flex flex-col md:flex-row">
+    <section class="flex flex-col md:flex-row">
     <div class="w-full md:w-8/12">
         <div class="m-2 p-2 bg-white">
             <h2 class=" font-semibold text-2xl text-black">
@@ -20,9 +17,9 @@
                </div>
             </div>
 
-            <div class="m-2" v-if="$page.props.auth.auth_check && postSlug.data.owner">
-                <Link :href="route('communities.post.edit',[communitySlug.slug,postSlug.data.slug])" class=" text-sm font-semibold rounded-md py-2 px-4 me-2 bg-blue-500 text-white hover:bg-blue-300">Edit</Link>
-                <Link :href="route('communities.post.destroy',[communitySlug.slug,postSlug.data.slug])" method="delete" as="button" type="button" class="text-sm font-semibold rounded-md py-2 px-4 me-2 bg-red-500 text-white hover:bg-red-300">Delete</Link>
+            <div class="m-2 flex justify-end" style="height:30px" v-if="$page.props.auth.auth_check && postSlug.data.owner">
+                <Link :href="route('communities.post.edit',[communitySlug.slug,postSlug.data.slug])" class="  text-sm font-semibold m-auto rounded-md p-2 px-4 me-2 bg-blue-500 text-white hover:bg-blue-300">Edit</Link>
+                <Link :href="route('communities.post.destroy',[communitySlug.slug,postSlug.data.slug])" method="delete" as="button" type="button" class="text-sm m-auto font-semibold rounded-md p-2 px-4 me-2 bg-red-500 text-white hover:bg-red-300">Delete</Link>
             </div>
         </div>
     </div>

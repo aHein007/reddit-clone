@@ -54,8 +54,8 @@
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ community.slug }}</td>
                     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ community.created_at }}</td>
                     <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-                      <Link :href="route('communities.edit',community.id)" class="text-indigo-600 hover:text-indigo-900 me-3">Edit<span class="sr-only">, Lindsay Walton</span></Link>
-                      <Link method="delete" as="button" type="button" :href="route('communities.destroy', community.id)" class=" text-red-600  hover:text-red-900">Delete<span class="sr-only">, Lindsay Walton</span></Link>
+                      <Link :href="route('communities.edit',community.slug)" class="text-indigo-600 hover:text-indigo-900 me-3">Edit<span class="sr-only">, Lindsay Walton</span></Link>
+                      <Link method="delete" as="button" type="button" :href="route('communities.destroy', community.slug)" class=" text-red-600  hover:text-red-900">Delete<span class="sr-only">, Lindsay Walton</span></Link>
                         <!-- (method,as,type) this is important method in delete -->
                     </td>
                   </tr>

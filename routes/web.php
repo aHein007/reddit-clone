@@ -42,12 +42,8 @@ Route::get('/r/{slug}',[FrontendCommunityController::class,'show'])->name('front
 Route::get('/r/{community_slug}/post/{post:slug}',[PostDetailController::class,'show'])->name('frontend.post.show'); // this is detail
 
 Route::group(['middleware' => ['auth','verified']],function(){
-    Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-    })->name('dashboard');
-
-    Route::resource('/dashboard/communities',CommunityController::class);
-     Route::resource('/dashboard/communities.post',CommunityPostController::class);
+  Route::resource('communities',CommunityController::class);
+     Route::resource('communities.post',CommunityPostController::class);
 });
 
 
