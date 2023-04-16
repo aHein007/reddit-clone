@@ -26,17 +26,21 @@ class CommunityPostController extends Controller
     }
 
     public function edit(Community $community,Post $post){
-
+        $this->authorize('update',$post);
        return Inertia::render('Community/Post/PostEdit',compact('community','post'));
     }
 
     public function update(StorePostRequest $request,Community $community,Post $post ){
+        $this->authorize('update',$post);
+
         $post->update($request->validated());
 
         return Redirect::route('frontend.post.show',[$community->slug,$post->slug]);
     }
 
     public function destroy(Community $community,Post $post){
+        $this->authorize('delete',$post);
+
         $post->delete();
 
         return redirect()->route('frontend.communities.show',$community->slug);
