@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\CommunityController;
 use App\Http\Controllers\Backend\CommunityPostController;
 use App\Http\Controllers\Frontend\CommunityController as FrontendCommunityController;
+use App\Http\Controllers\Frontend\PostCommentController;
 use App\Http\Controllers\Frontend\PostDetailController;
 
 /*
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
 //show community
 Route::get('/r/{slug}',[FrontendCommunityController::class,'show'])->name('frontend.communities.show'); // this is post show
 Route::get('/r/{community_slug}/post/{post:slug}',[PostDetailController::class,'show'])->name('frontend.post.show'); // this is detail
+Route::post('/r/{community_slug}/post/{post:slug}/comment',[PostCommentController::class,'store'])->name('frontend.post.store'); // comment store
 
 Route::group(['middleware' => ['auth','verified']],function(){
   Route::resource('communities',CommunityController::class);

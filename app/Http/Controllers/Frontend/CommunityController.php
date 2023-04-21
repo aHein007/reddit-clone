@@ -18,4 +18,4 @@ class CommunityController extends Controller
         return Inertia::render('Frontend/Community/Show',compact('community','posts'));
     }
 }
-j
+

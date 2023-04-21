@@ -31,7 +31,7 @@
                 </div>
                 <div class="my-2">
                   <h2 class="text-lg font-medium mb-1 p-2">{{ post.title }}</h2>
-                  <div class="text-sm text-slate-500">{{ post.description }}</div>
+                  <div class="text-sm text-slate-500">{{ cutString }} .....</div>
                 </div>
                 <div class="inline-flex items-center my-1 mt-2">
                   <div class="flex hover:bg-grey-lighter p-1">
@@ -70,9 +70,14 @@
 
 <script setup>
 import {Link} from '@inertiajs/vue3'
-defineProps({
+import { computed } from 'vue'
+let props = defineProps({
     post:Object,
     communityName:String
+})
+
+let cutString =computed(()=>{
+  return  props.post.description = props.post.description.slice(0 , 400)
 })
 </script>
 

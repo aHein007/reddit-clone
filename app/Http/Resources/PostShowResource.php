@@ -22,7 +22,8 @@ class PostShowResource extends JsonResource
             'username' =>$this->user->username,
             'slug' => $this->slug,
             'url' => $this->url,
-            'owner' => auth()->id() == $this->user_id ? true : false // current (user_id) and post table in (user_id) are same , it will return true (or) false
+            'owner' => auth()->id() == $this->user_id ? true : false, // current (user_id) and post table in (user_id) are same , it will return true (or) false
+            'comments' => CommentShowResource::collection($this->whenLoaded('comments')) // this is important
         ];
     }
 }

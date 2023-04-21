@@ -33,8 +33,16 @@ class Post extends Model
         return 'slug';
     }
 
-    public function user(){
+    public function user(){ // no s
      return $this->belongsTo(User::class);
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
+
+    public function community(){
+        return $this->belongsTo(Community::class);
     }
 
 }
