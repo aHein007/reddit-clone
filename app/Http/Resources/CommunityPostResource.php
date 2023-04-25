@@ -20,7 +20,10 @@ class CommunityPostResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'username' =>$this->user->username,
-            'slug' => $this->slug
+            'slug' => $this->slug,
+            'vote' => $this->vote,
+            'postVotes' => $this->whenLoaded('postVotes') // (whenLoaded) is when CommunityPostREsource is running it will for postVotes model
+            //usually you want to use  model in this collection
         ];
     }
 }

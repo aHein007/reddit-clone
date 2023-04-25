@@ -5,19 +5,7 @@
         <div class="w-full   mx-auto">
           <div class="py-2 ">
             <div class="flex border border-grey-light-alt hover:border-grey rounded bg-white cursor-pointer p-10 shadow-md">
-              <div class="w-1/12 flex flex-col text-center pt-2">
-                <button class="text-xs">
-                  <svg class="w-5 fill-current text-grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M7 10v8h6v-8h5l-8-8-8 8h5z" />
-                  </svg>
-                </button>
-                <span class="text-xs font-semibold my-1 me-20">20k</span>
-                <button class="text-xs">
-                  <svg class="w-5 fill-current text-grey" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <path d="M7 10V2h6v8h5l-8 8-8-8h5z" />
-                  </svg>
-                </button>
-              </div>
+                <PostVote :post="post"/>
               <div class="w-full md:w-11/12 pt-2">
                 <div class="flex items-center text-xs mb-2">
                   <a href="#" class="font-semibold no-underline hover:underline text-black flex items-center">
@@ -30,7 +18,7 @@
                   <span class="text-grey">2 hours ago</span>
                 </div>
                 <div class="my-2">
-                  <h2 class="text-lg font-medium mb-1 p-2">{{ post.title }}</h2>
+                  <h2 class="text-lg font-medium mb-1 mt-5">{{ post.title }}</h2>
                   <div class="text-sm text-slate-500">{{ cutString }} .....</div>
                 </div>
                 <div class="inline-flex items-center my-1 mt-2">
@@ -71,6 +59,7 @@
 <script setup>
 import {Link} from '@inertiajs/vue3'
 import { computed } from 'vue'
+import PostVote from '../Components/PostVote.vue'
 let props = defineProps({
     post:Object,
     communityName:String
