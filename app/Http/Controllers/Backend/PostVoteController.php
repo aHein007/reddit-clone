@@ -19,7 +19,7 @@ class PostVoteController extends Controller
                 $isVoted->update([
                     'vote' => 1
                 ]);
-                $post->increment('vote',1); // this is add 2 in post vote
+                $post->increment('vote',2); // this is add 2 in post vote
                 return redirect()->back();
                }elseif($isVoted->vote === 1){
                  return redirect()->back();

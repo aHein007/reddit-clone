@@ -12,11 +12,11 @@ use App\Http\Resources\PostShowResource;
 class PostDetailController extends Controller
 {
     public function show($community_slug,$post_slug){
-        $postSlug =new PostShowResource(Post::with('comments')->where('slug',$post_slug)->first());// with it mean ('comments') table is relation with post table
+        $post =new PostShowResource(Post::with('comments')->where('slug',$post_slug)->first());// with it mean ('comments') table is relation with post table
 
         $communitySlug =Community::where('slug',$community_slug)->first();
 
-        return Inertia::render('Frontend/Post/PostDetailShow',compact('postSlug','communitySlug'));
+        return Inertia::render('Frontend/Post/PostDetailShow',compact('post','communitySlug'));
     }
 
 

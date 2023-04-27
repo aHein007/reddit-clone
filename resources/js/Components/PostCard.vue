@@ -3,6 +3,7 @@
     <div class="container mx-auto">
       <div class="flex w-960 md:w-full">
         <div class="w-full   mx-auto">
+
           <div class="py-2 ">
             <div class="flex border border-grey-light-alt hover:border-grey rounded bg-white cursor-pointer p-10 shadow-md">
                 <PostVote :post="post"/>
