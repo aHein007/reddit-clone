@@ -8,7 +8,7 @@
             </h2>
         </div>
         <div class="m-2 p-2 flex bg-white ">
-            
+
                <PostVote class="text-black" :post="post.data"></PostVote>
 
             <div class="w-full" >

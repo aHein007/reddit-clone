@@ -15,7 +15,7 @@ class CommunityController extends Controller
 
         $posts =CommunityPostResource::collection($community->posts()->where('user_id',$community->user_id)->with(['user','postVotes' => function($query){
             $query->where('user_id',auth()->id());
-        }])->paginate(2)); // in with value is (user model) relation ship
+        }])->withCount('comments')->paginate(2)); // in with value is (user model) relation ship
         // and than 'postVotes' is will go to CommunityPostResource'
         return Inertia::render('Frontend/Community/Show',compact('community','posts'));
     }

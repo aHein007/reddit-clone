@@ -10,6 +10,7 @@ use App\Http\Controllers\Frontend\PostDetailController;
 use App\Http\Controllers\Frontend\PostCommentController;
 use App\Http\Controllers\Backend\CommunityPostController;
 use App\Http\Controllers\Frontend\CommunityController as FrontendCommunityController;
+use App\Http\Controllers\Frontend\WelcomePageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +23,8 @@ use App\Http\Controllers\Frontend\CommunityController as FrontendCommunityContro
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+
+Route::get('/',[WelcomePageController::class,'welcome'])->name('welcome');
 
 
 
