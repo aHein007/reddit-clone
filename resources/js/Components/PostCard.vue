@@ -11,15 +11,15 @@
                 <div class="flex items-center text-xs mb-2">
                   <a href="#" class="font-semibold no-underline hover:underline text-black flex items-center">
                     <img class="rounded-full border h-5 w-5" src="https://avatars0.githubusercontent.com/u/30317862?s=200&v=4">
-                    <span class="ml-2">r/{{ communityName }}</span>
+                    <Link :href="route('frontend.communities.show',communityName)" class="ml-2">r/{{ communityName }}</Link>
                   </a>
                   <span class="text-grey-light mx-1 text-xxs">•</span>
                   <span class="text-grey">Posted by</span>
                   <a href="#" class="text-grey mx-1  no-underline hover:underline">{{ post.username }}</a>
-                  <span class="text-grey">2 hours ago</span>
+                  <span class="text-slate-400 ms-2">{{ post.created_at   }}</span>
                 </div>
                 <div class="my-2">
-                  <h2 class="text-lg font-medium mb-1 mt-5">{{ post.title }}</h2>
+                  <Link :href="route('frontend.post.show',[communityName,post.slug])" class="text-lg font-medium mb-1 mt-5">{{ post.title }}</Link>
                   <div class="text-sm text-slate-500">{{ cutString }} .....</div>
                 </div>
                 <div class="inline-flex items-center my-1 mt-2">
@@ -67,7 +67,7 @@ let props = defineProps({
 })
 
 let cutString =computed(()=>{
-  return  props.post.description = props.post.description.slice(0 , 400)
+  return  props.post.description = props.post.description.slice(0 , 200)
 })
 </script>
 

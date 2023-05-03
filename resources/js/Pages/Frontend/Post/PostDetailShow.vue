@@ -14,6 +14,7 @@
             <div class="w-full" >
 
                 <span class=" text-slate-500 text-sm m-2">Posted By </span><span class=" font-semibold text-sm">{{ post.data.username }}</span>
+                <span class="text-slate-400 text-sm ms-2">{{ post.data.created_at }}</span>
 
             <span class="m-2 float-right" style="height:30px" v-if="$page.props.auth.auth_check && post.data.owner">
                 <Link :href="route('communities.post.edit',[communitySlug.slug,post.data.slug])" class="  text-sm font-semibold m-auto rounded-md p-2 px-4 me-2 bg-blue-500 text-white hover:bg-blue-300">Edit</Link>
@@ -51,9 +52,7 @@
         </div>
     </div>
     <div class="w-full md:w-4/12 p-4">
-        <div class="p-2 m-2">
-            <div class=" bg-slate-500 p-2 text-white">Last Community</div>
-        </div>
+        <PostList :posts="posts.data" :community="communitySlug"></PostList>
     </div>
   </section>
 
@@ -61,13 +60,14 @@
 </template>
 
 <script setup>
-import GuestLayout from '../../../Layouts/GuestLayout.vue'
-import Pagination from '../../../Components/Pagination.vue'
-import PostVote from '../../../Components/PostVote.vue'
+import GuestLayout from '@/Layouts/GuestLayout.vue'
+import Pagination from '@/Components/Pagination.vue'
+import PostVote from '@/Components/PostVote.vue'
+import PostList from '@/Components/PostList.vue'
 import {Link, useForm} from '@inertiajs/vue3'
 let props = defineProps({
     communitySlug:Object,
-
+    posts:Object,
     post:Object
 })
 

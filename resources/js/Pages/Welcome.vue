@@ -10,7 +10,6 @@
     </div>
     <div class="w-full md:w-4/12">
         <div class="p-2 m-2">
-            <div class="  p-2 ">Top Community</div>
             <CommunityList :communities="communities.data"></CommunityList>
         </div>
     </div>

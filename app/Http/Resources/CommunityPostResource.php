@@ -25,7 +25,9 @@ class CommunityPostResource extends JsonResource
             'postVotes' => $this->whenLoaded('postVotes'), // (whenLoaded) is when CommunityPostREsource is running it will for postVotes model
             //usually you want to use  model in this collection
             'community_slug' => $this->community->slug,
-            'comments_count' => $this->comments_count
+            'comments_count' => $this->comments_count,
+            'created_at' => $this->created_at->diffForHumans(),// this is timing count method
+
         ];
     }
 }
